@@ -2,9 +2,74 @@
 <html>
 <head>
 	<title>One Year Later</title>
-	<link rel="stylesheet" type="text/css" href="">
+
+	<link rel="stylesheet" type="text/css" href="bower_components/angularjs-slider/dist/rzslider.min.css">
+
+	<link rel="stylesheet" type="text/css" href="bower_components/angular-material/angular-material.min.css">
+
+	<script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+
+    <script type="text/javascript" src="bower_components/angularjs-slider/dist/rzslider.min.js"></script>
+
+
+	<script type="text/javascript">
+		angular.module('oneyearlater', [
+				'ngMaterial',
+				'rzModule'
+			]
+		)
+		.controller("Ctrl",function($scope){
+			$scope.value = 12;
+
+			$scope.option = {
+				floor: 0, 
+				ceil: 12,
+				step:1,
+				reset:resetFunction
+			};
+
+			$scope.wtf = function (){
+				$scope.option.ceil = 20;
+			}
+
+			$scope.reset = function(){
+				$scope.option.reset();
+			}
+
+			function resetFunction () {
+				$scope.option.floor = 0;
+				$scope.option.ceil =12;
+				$scope.value = 0;
+			}
+
+			
+		})
+	</script>
 </head>
-<body>
-	<script type="text/javascript"></script>
+<body ng-app="oneyearlater" ng-controller="Ctrl">
+
+	<md-button ng-click="wtf()">
+		Heelo
+	</md-button>
+
+	<md-button ng-click="reset()">
+		Rest
+	</md-button>
+
+	<p>{{value}}</p>
+
+	<div>
+	    <rzslider
+	         rz-slider-model="value"
+	         rz-slider-options="option">
+	    </rzslider>
+	</div>
+
+
+	
 </body>
 </html>
