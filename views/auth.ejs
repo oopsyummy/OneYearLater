@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html ng-app="moerit.auth" ng-cloak>
+  <head>
+    <title>Moerit - Login</title>
+
+    <link rel="icon" href="images/logo.png">
+    <link rel="stylesheet" type="text/css" href="lib/angular-material/angular-material.min.css">
+    <link rel='stylesheet' href="/css/auth-style.css" />
+  </head>
+  <body ng-controller="AuthCtrl">
+
+    <div id="mask" style="width:100%;height:100%;position:fixed;z-index:100;top:0;left:0;background:white;transition:opacity 0.5s linear;opacity:1;">
+      <div style="position:relative;left:50%;top:50%;transform:translate(-50%,-50%);width:350px;text-align:center;">
+        <img style="width:100%;" src="images/loading.gif">
+        <p style="width:100%;margin:-20px 0 0 0;">象由心生</p>
+      </div>
+    </div>
+
+    <img id="background" src="images/auth-wallpaper.jpg">
+
+    <div id="center-box">
+      
+      <img id="logo" src="images/logo.png">
+
+      <div class="md-whiteframe-15dp" id="auth-box">
+        <md-tabs md-dynamic-height md-border-bottom>
+          <md-tab label="登陆" md-active="activeTabs == 'login'">
+            <md-content class="md-padding" style="width: 300px;display: inline-block;">
+              <form name="signin">
+                <md-input-container class="md-block">
+                  <label>用户名或邮箱</label>
+                  <input ng-model="user.info" required name="userinfo" type="text"ng-change="signin.error = false">
+                  <div ng-messages="signin.userinfo.$error" role="alert">
+                    <div ng-message="required">用户名不能为空</div>
+                  </div>
+                </md-input-container>
+                <md-input-container class="md-block" style="margin-bottom:0;">
+                  <label>密码</label>
+                  <input ng-model="user.password_login" type="password" required name="password" ng-change="signin.error = false">
+                  <div ng-messages="signin.password.$error" role="alert">
+                    <div ng-message="required">密码不能为空</div>
+                  </div>
+                </md-input-container>
+
+              </form>
+
+              <div ng-messages="signin" style="text-align:left;min-height:20px;color:red">
+                <div ng-message="error">账号或密码错误</div>
+              </div>
+
+              <div style="width:100%;text:align-center">
+                <md-button style="margin:5px 0;width:100%;" class="md-raised md-primary md-block" ng-click="login()">登陆</md-button>
+
+                <md-button style="margin:5px 0;width:100%;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAqCAMAAABFoMFOAAAAWlBMVEVOaaJDYJxCX5xBXptIZJ9MZ6E/XJpFYZ1KZqA9W5lGYp5HY55MaKFJZZ9LZqBEYZ1NaaJNaKJNaKFAXZtAXZpLZ6E+XJo+W5lJZaA9Wpk8Wpk8Wpg8WZg7WZj2xcGWAAAANElEQVR42lWGSQoAIBDDHCjo0f8/UxBxQDQuFwlpqgBZBq6+P+unVY1GnDgwqbD2zGz5e1lBdwvGGPE6OgAAAABJRU5ErkJggg==);background-repeat: repeat-x;" class="md-raised md-primary md-block" ng-click="facebookLogin()">使用Facebook登陆</md-button>
+                
+                
+                <p style="color:gray">忘记密码?</p>
+              </div>
+            </md-content>
+          </md-tab>
+          <md-tab label="注册" md-active="activeTabs == 'register'">
+            <md-content class="md-padding">
+              <div>
+                <md-input-container class="md-block">
+                  <label>用户名</label>
+                  <input ng-model="user.name">
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <label>邮箱</label>
+                  <input ng-model="user.email" type="email">
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <label>密码</label>
+                  <input ng-model="user.password_reg" type="password">
+                </md-input-container>
+                <md-checkbox ng-model="user.agree_service" aria-label="service">
+                  同意<a style="color:green">始祖象科技服务条款</a>
+                </md-checkbox>
+              </div>
+
+              <div style="width:100%;text:align-center">
+                <md-button style="margin:0;width:100%;" class="md-raised md-primary md-block">注册</md-button>
+              </div>
+
+              
+            </md-content>
+          </md-tab>
+        </md-tabs>
+      </div>
+
+      
+    </div>
+
+    <moerit-footer></moerit-footer>
+
+    <script type="text/javascript" src="lib/angular/angular.min.js"></script>	
+  	<script type="text/javascript" src="lib/angular-messages/angular-messages.min.js"></script>
+  	<script type="text/javascript" src="lib/angular-aria/angular-aria.min.js"></script>
+  	<script type="text/javascript" src="lib/angular-animate/angular-animate.min.js"></script>
+    <script type="text/javascript" src="lib/angular-material/angular-material.min.js"></script>
+    <script type="text/javascript" src="lib/angular-facebook/lib/angular-facebook.js"></script>
+    
+    
+    <script type="text/javascript" src="function/account-auth.js"></script>
+    <script type="text/javascript" src="component/footer/footer.js"></script>
+    <!--  
+    <script type="text/javascript" src="lib/filter.bundle.js"></script> 
+    -->
+  </body>
+</html>
