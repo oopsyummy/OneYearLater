@@ -10,18 +10,13 @@
   <script src="bower_components/angular-animate/angular-animate.js"></script>
   <script src="bower_components/angular-material/angular-material.js"></script>
   <script src="bower_components/angular-messages/angular-messages.js"></script>
+	<script src="bower_components/angular-css/angular-css.min.js"></script>
 
-	<script type="text/javascript">
-		angular.module('oneyearlater', [
-				'ngMaterial',
-			]
-		)
-		.controller("Ctrl",function($scope){
-
-		})
-	</script>
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="components/copyright/copyright.js"></script>
 </head>
 <body ng-app="oneyearlater" ng-controller="Ctrl">
-  <md-button>Good</md-button>
+	<img style="width:100%" src="images/tree.jpg"></img>
+	<copyright></copyright>
 </body>
 </html>

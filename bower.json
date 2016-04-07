@@ -19,6 +19,7 @@
   "dependencies": {
     "angular-material": "~1.0.5",
     "angular-ui-router": "~0.2.18",
-    "moment": "^2.11.2"
+    "moment": "^2.11.2",
+    "angular-css": "^1.0.7"
   }
 }
