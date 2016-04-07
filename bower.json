@@ -1,0 +1,24 @@
+{
+  "name": "Moerit",
+  "description": "",
+  "main": "",
+  "authors": [
+    "windht <517838178@qq.com>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "~1.0.5",
+    "angular-ui-router": "~0.2.18",
+    "moment": "^2.11.2"
+  }
+}
